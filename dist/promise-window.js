@@ -58,6 +58,7 @@
    * @param {Object}   config                 Configuration object. See description below.
    * @param {Number}   config.width           Width of the popup window. Defaults to the current document width.
    * @param {Number}   config.height          Height of the popup window. Defaults to the current document height.
+   * @param {Boolean}  config.removeOpener    Remove `opener` from the popup window. Defaults to false.
    * @param {Function} config.promiseProvider Promise provider. Should return a plain object containing 3 fields:
    *                                          - `promise` {Promise}  a new Promise object
    *                                          - `resolve` {Function} the method to resolve the given Promise
@@ -147,6 +148,7 @@
   PromiseWindow.defaultConfig = {
     width: html.clientWidth,
     height: html.clientHeight,
+    removeOpener: false,
     window: {
       scrollbars: true
     },
@@ -379,6 +381,9 @@
       this._reject("blocked");
     }
     else {
+      if (this.config.watcherDelay) {
+        this._window.opener = null;
+      }
       root.addEventListener("message", this._onPostMessage, true);
       this._startWatcher();
     }
