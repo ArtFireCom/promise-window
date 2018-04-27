@@ -19,9 +19,11 @@
   "license": "MIT",
   "author": "Alex Mercier <pro.alexandre.mercier@gmail.com> (http://amercier.com/)",
   "files": [
-    "dist/*.js"
+    "dist/*.js",
+    "index.d.ts"
   ],
   "main": "dist/promise-window.js",
+  "typings": "index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/amercier/promise-window/"
