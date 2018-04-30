@@ -12,7 +12,7 @@ interface PromiseWindowConfig {
     onPostMessage?: (event: any) => void;
     onClose?: () => void;
     originRegexp?: RegExp;
-    removeOpener: boolean;
+    removeOpener?: boolean;
 }
 
 declare module "promise-window" {
