@@ -381,7 +381,7 @@
       this._reject("blocked");
     }
     else {
-      if (this.config.watcherDelay) {
+      if (this.config.removeOpener) {
         this._window.opener = null;
       }
       root.addEventListener("message", this._onPostMessage, true);
